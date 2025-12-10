@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -8,9 +9,9 @@ const adminRoutes = require('./routes/admin');
 const messageRoutes = require('./routes/messages');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-const MONGO_URI = "mongodb+srv://suryaa:suryaa123@punyayatra.wnqwdzc.mongodb.net/?retryWrites=true&w=majority&appName=punyayatra";
+const MONGO_URI = process.env.MONGO_URI;
 
 mongoose.connect(MONGO_URI)
   .then(() => console.log('MongoDB connected'))
